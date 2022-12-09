@@ -1,6 +1,30 @@
 .headerContainer{
-    margin: 0;
+    padding: 10px;
     background-color: #090922;
     color: #E6F5FF;
+    width: auto;
     height: 70px;
+}
+
+.header__section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo{
+    /* border: solid 1px white; */
+    height: 85px;
+    width: auto;
+}
+
+.header__btnMenu{
+    background-color: transparent;
+    border-style: none;
+}
+
+.header__menuIcon{
+    color: #E6F5FF;
+    height: 30px;
+    width: auto;
 }

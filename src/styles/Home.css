@@ -7,12 +7,51 @@
     padding-bottom: 20px;
 }
 
+.home__divBtnInput{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.home__divBtnInput input{
+    border-style: none;
+    height: 41px;
+    width: auto;
+    /* border-radius: 10px; */
+    font-size: 14px;
+}
+
+.home__divInput{
+    /* border: solid 1px green; */
+    height: 44px;
+}
+
+.home__btnSearch{
+    border-style: none;
+    background-color: #090922;
+    color: #E6F5FF;
+    font-size: 16px;
+    height: 44px;
+    width: 44px;
+
+}
+
+.home__btnPrevious, .home__btnNext{
+    border-style: none;
+    border-radius: 50%;
+    height: 44px;
+    width: 44px;
+    background-color: #090922;
+    color: #E6F5FF;
+}
+
 .home__Card{
     background-color: #E6F5FF;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     border-radius: 12px;
     margin: 20px;
     padding: 10px;
@@ -22,7 +61,7 @@
 }
 
 .home__titleCard{
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .home__cardContent{
@@ -37,7 +76,7 @@
 
 .home__imageCard img{
     height: auto;
-    width: 100px;
+    width: 180px;
 }
 
 .home__infoCard{
@@ -56,4 +95,5 @@
     border-style: none;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 10px;
 }

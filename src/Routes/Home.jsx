@@ -7,6 +7,7 @@ import { faRightLong } from '@fortawesome/free-solid-svg-icons';
 import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
 import Modal from '../Components/Modal';
 import { useCallback } from 'react';
+import Card from '../Components/Card';
 
 // <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
 // <FontAwesomeIcon icon="fa-solid fa-right-long" />
@@ -21,19 +22,12 @@ const Home = () => {
 
   const [openModal, setOpenModal] = useState(false)
 
-    // ponerlo en el boton de ver mas para que se abra el modal
-    // const handleEdit = () => {
-    //     setOpenModal(true)
-    // }
-
-    const closeModal = () => {
-        setOpenModal(false)
-    }
+  const closeModal = () => {
+      setOpenModal(false)
+  }
 
   // console.log(dataRes[0].imdbID)
   // https://www.omdbapi.com/?t=game+of+thrones&apikey=ff18a1d
-  
-  // const urlRequest = `${baseURL}?apikey=${apiKey}&s=${title}&type=movie&y=${new Date().getFullYear()}&page=${page}`
   // imdbID: "tt0372784" del el zorro
 
   // peticion axios para obtener la data
@@ -80,30 +74,32 @@ const Home = () => {
       <section className='homeContainer'>
         <Header/>
 
-        <div className='home__btnNext'>
-          <button onClick={previousPage}><FontAwesomeIcon icon={faLeftLong}/></button>
+        <div className='home__divBtnInput'>
+          <button onClick={previousPage} className='home__btnPrevious'><FontAwesomeIcon icon={faLeftLong}/></button>
           
+          <div className='home__divInput'>
             <input
               type='text'
               placeholder='Title'
               value={title}
               onChange={handleChange}
             ></input>
-            <button onClick={()=>petition(counterPage)}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
+            <button onClick={()=>petition(counterPage)} className='home__btnSearch'><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
+          </div>
+            
          
-          <button onClick={nextPage}><FontAwesomeIcon icon={faRightLong}/></button>
+          <button onClick={nextPage} className='home__btnNext'><FontAwesomeIcon icon={faRightLong}/></button>
         </div>
 
         <Modal
           openModal={openModal}
           closeModal={closeModal}
         >
-          <div key={dataResId.imdbID} className='home__Card'>
-            <div className='home__titleCard'>
+          <div className='home__Card home__Card--modal'>
+            <div className='home__titleCard--modal'>
               <p>{dataResId.Title}</p>
             </div>
-            <div className='home__cardContent'>
-              <div className='home__infoCard'>
+            <div className='home__infoCard--modal'>
                 <p>{dataResId.Plot}</p>
                 <p>{dataResId.Genre}</p>
                 <p>Director: {dataResId.Director}</p>
@@ -113,28 +109,18 @@ const Home = () => {
                 <p>{dataResId.Runtime}</p>
                 <p>Actors: {dataResId.Actors}</p>
                 <p>Writer: {dataResId.Writer}</p>
-              </div>
             </div>
           </div>
         </Modal>
-
-        
 
         {
           dataRes.map((movie, index) => {
             return (
               <div key={index} className='home__Card'>
-                <div className='home__titleCard'>
-                  <p>{movie.Title}</p>
-                </div>
-                <div className='home__cardContent'>
-                  <div className='home__imageCard'>
-                    <img src={movie.Poster} alt='poster image' />
-                  </div>
-                  <div className='home__infoCard'>
-                    <button onClick={()=>idPetition(movie)} className='home__btnSeeMore'>See More</button>
-                  </div>
-                </div>
+                <Card
+                  movie={movie}
+                  idPetition={idPetition}
+                />
               </div>
             )
           })
