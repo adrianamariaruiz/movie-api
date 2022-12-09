@@ -6,6 +6,7 @@ import Home from "./Routes/Home"
 import './styles/Login.css'
 import './styles/Header.css'
 import './styles/Home.css'
+import './styles/Modal.css'
 
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
