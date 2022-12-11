@@ -8,6 +8,7 @@ import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
 import Modal from '../Components/Modal';
 import { useCallback } from 'react';
 import Card from '../Components/Card';
+import CardRandom from '../Components/CardRandom';
 
 // <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
 // <FontAwesomeIcon icon="fa-solid fa-right-long" />
@@ -19,6 +20,7 @@ const Home = () => {
   const [dataResId, setDataResId] = useState([])
   const [counterPage, setCounterPage ] = useState(1)
   const [title, setTitle] = useState('')
+  const [random, setRandom] = useState({})
 
   const [openModal, setOpenModal] = useState(false)
 
@@ -69,11 +71,65 @@ const Home = () => {
     // console.log(e.target.value)
   }
 
+// crear una lista de id y tomar uno de forma aleatoria
+// function getRandomInt(min, max) {
+  // return Math.floor(Math.random() * (max-min)+min);
+// } cuando no se le pasa nada a random da un numero entre 0 y 1 (excluyendo el 1)
+
+
+const randomMovie = (min, max) => {
+  return Math.floor(Math.random() * (max-min)+min)
+}
+
+// console.log(randomMovie(1000000, 2000000))
+
+const petitionRandom = async() => {
+  const res = await axios(`https://www.omdbapi.com/?i=tt${randomMovie(1000000, 2000000)}&type=movie&apikey=ff18a1d&`)
+    console.log(res.data)
+      setRandom(res.data)
+}
+
+// const idMax = 1265019 
+
   return (
     <>
       <section className='homeContainer'>
-        <Header/>
+        <Header 
+          petitionRandom={petitionRandom}
+        />
 
+        {/* card random */}
+        
+        <div className='home__Card'>
+          <CardRandom 
+          random={random}
+          idPetition={idPetition}
+          />
+        </div>
+        
+        <Modal
+          openModal={openModal}
+          closeModal={closeModal}
+        >
+          <div className='home__Card home__Card--modal'>
+            <div className='home__titleCard--modal'>
+              <p>{dataResId.Title}</p>
+            </div>
+            <div className='home__infoCard--modal'>
+              <p>{dataResId.Plot}</p>
+              <p>{dataResId.Genre}</p>
+              <p>Director: {dataResId.Director}</p>
+              <p>{dataResId.Year}</p>
+              <p>{dataResId.Language}</p>
+              <p>Coutry: {dataResId.Country}</p>
+              <p>{dataResId.Runtime}</p>
+              <p>Actors: {dataResId.Actors}</p>
+              <p>Writer: {dataResId.Writer}</p>
+            </div>
+          </div>
+        </Modal>
+
+        {/* botones next previous input busqueda */}
         <div className='home__divBtnInput'>
           <button onClick={previousPage} className='home__btnPrevious'><FontAwesomeIcon icon={faLeftLong}/></button>
           
@@ -87,32 +143,10 @@ const Home = () => {
             <button onClick={()=>petition(counterPage)} className='home__btnSearch'><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
           </div>
             
-         
           <button onClick={nextPage} className='home__btnNext'><FontAwesomeIcon icon={faRightLong}/></button>
         </div>
 
-        <Modal
-          openModal={openModal}
-          closeModal={closeModal}
-        >
-          <div className='home__Card home__Card--modal'>
-            <div className='home__titleCard--modal'>
-              <p>{dataResId.Title}</p>
-            </div>
-            <div className='home__infoCard--modal'>
-                <p>{dataResId.Plot}</p>
-                <p>{dataResId.Genre}</p>
-                <p>Director: {dataResId.Director}</p>
-                <p>{dataResId.Year}</p>
-                <p>{dataResId.Language}</p>
-                <p>Coutry: {dataResId.Country}</p>
-                <p>{dataResId.Runtime}</p>
-                <p>Actors: {dataResId.Actors}</p>
-                <p>Writer: {dataResId.Writer}</p>
-            </div>
-          </div>
-        </Modal>
-
+        {/* tarjeta con poster */}
         {
           dataRes.map((movie, index) => {
             return (
@@ -125,6 +159,28 @@ const Home = () => {
             )
           })
         }
+
+        <Modal
+          openModal={openModal}
+          closeModal={closeModal}
+        >
+          <div className='home__Card home__Card--modal'>
+            <div className='home__titleCard--modal'>
+              <p>{dataResId.Title}</p>
+            </div>
+            <div className='home__infoCard--modal'>
+              <p>{dataResId.Plot}</p>
+              <p>{dataResId.Genre}</p>
+              <p>Director: {dataResId.Director}</p>
+              <p>{dataResId.Year}</p>
+              <p>{dataResId.Language}</p>
+              <p>Coutry: {dataResId.Country}</p>
+              <p>{dataResId.Runtime}</p>
+              <p>Actors: {dataResId.Actors}</p>
+              <p>Writer: {dataResId.Writer}</p>
+            </div>
+          </div>
+        </Modal>
 
       </section>
     </>
