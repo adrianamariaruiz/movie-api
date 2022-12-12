@@ -82,6 +82,7 @@ const randomMovie = (min, max) => {
 }
 
 // console.log(randomMovie(1000000, 2000000))
+// https://www.omdbapi.com/?apikey=####&s=love&type=series&page=8
 
 const petitionRandom = async() => {
   const res = await axios(`https://www.omdbapi.com/?i=tt${randomMovie(1000000, 2000000)}&type=movie&apikey=ff18a1d&`)
