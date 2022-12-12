@@ -1,15 +1,13 @@
-import axios from 'axios'
 import React, { useState } from 'react'
-import Header from '../Components/Header'
+import { useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faRightLong } from '@fortawesome/free-solid-svg-icons';
 import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
+
+import Header from '../Components/Header'
 import Modal from '../Components/Modal';
-import { useCallback } from 'react';
 import Card from '../Components/Card';
-import CardRandom from '../Components/CardRandom';
-import RandomPage from './RandomPage';
 import { petitionById, petitionMovie } from '../helpers/axios';
 
 // <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />

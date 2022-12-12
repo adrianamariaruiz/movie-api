@@ -1,5 +1,4 @@
-import axios from 'axios'
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useState } from 'react'
 import CardRandom from '../Components/CardRandom'
 import Header from '../Components/Header'
@@ -9,57 +8,56 @@ import { idPetition, petitionRandom } from '../helpers/axios'
 const RandomPage = () => {
 
   // crear una lista de id y tomar uno de forma aleatoria
-// function getRandomInt(min, max) {
+  // function getRandomInt(min, max) {
   // return Math.floor(Math.random() * (max-min)+min);
-// } cuando no se le pasa nada a random da un numero entre 0 y 1 (excluyendo el 1)
+  // } cuando no se le pasa nada a random da un numero entre 0 y 1 (excluyendo el 1)
 
-// const idMax = 1265019 
+  // const idMax = 1265019 
 
   const [random, setRandom] = useState([])
   const [dataResId, setDataResId] = useState([])
   const [openModal, setOpenModal] = useState(false)
 
-const closeModal = () => {
+  const closeModal = () => {
     setOpenModal(false)
-}
+  }
 
-const randomMovie = (min, max) => {
-    return Math.floor(Math.random() * (max-min)+min)
-}
-console.log(randomMovie(1000000, 2000000))
+  const randomMovie = (min, max) => {
+    return Math.floor(Math.random() * (max - min) + min)
+  }
+  console.log(randomMovie(1000000, 2000000))
 
-const randomPetition = async ()=>{
-  const res = await petitionRandom(randomMovie(1000000, 2000000));
-  console.log(res.data)
-  setRandom(res.data)
-}
+  const randomPetition = useCallback(async () => {
+    const res = await petitionRandom(randomMovie(1000000, 2000000));
+    console.log(res.data)
+    setRandom(res.data)
+  }, [])
 
-
-
-const petitionId = async()=>{
-  const res = await idPetition(random)
-  console.log(res.data)
-  if(res.data === undefined){
+  const petitionId = useCallback(async () => {
+    const res = await idPetition(random)
+    console.log(res.data)
+    if (res.data === undefined) {
       return []
-    }else{
+    } else {
       setDataResId(res.data)
       setOpenModal(true)
     }
-}
+  }, [random])
 
   return (
     <>
+      <section className='homeContainer'>
         <Header />
 
         <button onClick={randomPetition}>Random</button>
 
         <div className='home__Card'>
-          <CardRandom 
-          random={random}
-          petitionId={petitionId}
+          <CardRandom
+            random={random}
+            petitionId={petitionId}
           />
         </div>
-        
+
         <Modal
           openModal={openModal}
           closeModal={closeModal}
@@ -81,6 +79,7 @@ const petitionId = async()=>{
             </div>
           </div>
         </Modal>
+      </section>
     </>
   )
 }

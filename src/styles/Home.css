@@ -73,6 +73,9 @@
     /* border: solid 2px rgb(255, 238, 0); */
     text-align: center;
 }
+.home__cardContent p{
+    font-size: 20px;
+}
 
 .home__imageCard{
     /* border: solid 2px rgb(255, 238, 0); */

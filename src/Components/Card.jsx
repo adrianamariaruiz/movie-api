@@ -10,6 +10,7 @@ const Card = ({movie, idPetition}) => {
             <div className='home__imageCard'>
             <img src={movie.Poster} alt='poster image' />
             </div>
+            <p>{movie.Type}</p>
             <div className='home__infoCard'>
             <button onClick={()=>idPetition(movie)} className='home__btnSeeMore'>See More</button>
             </div>
