@@ -9,6 +9,8 @@ import Modal from '../Components/Modal';
 import { useCallback } from 'react';
 import Card from '../Components/Card';
 import CardRandom from '../Components/CardRandom';
+import RandomPage from './RandomPage';
+import { petitionById, petitionMovie } from '../helpers/axios';
 
 // <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
 // <FontAwesomeIcon icon="fa-solid fa-right-long" />
@@ -20,8 +22,6 @@ const Home = () => {
   const [dataResId, setDataResId] = useState([])
   const [counterPage, setCounterPage ] = useState(1)
   const [title, setTitle] = useState('')
-  const [random, setRandom] = useState({})
-
   const [openModal, setOpenModal] = useState(false)
 
   const closeModal = () => {
@@ -31,11 +31,12 @@ const Home = () => {
   // console.log(dataRes[0].imdbID)
   // https://www.omdbapi.com/?t=game+of+thrones&apikey=ff18a1d
   // imdbID: "tt0372784" del el zorro
+  // const res = await axios(`https://www.omdbapi.com/?i=${prueba}&apikey=ff18a1d`)
+  // const res = await axios(`https://www.omdbapi.com/?s=${title}&apikey=ff18a1d&page=${page}`)
 
   // peticion axios para obtener la data
   const petition = useCallback(async(page) => {
-    // const res = await axios(`https://www.omdbapi.com/?i=${prueba}&apikey=ff18a1d`)
-    const res = await axios(`https://www.omdbapi.com/?s=${title}&apikey=ff18a1d&page=${page}`)
+    const res = await petitionMovie(title, page)
     console.log(res.data.Search)
     if(res.data.Search === undefined){
       return []
@@ -46,7 +47,7 @@ const Home = () => {
 
   const idPetition = useCallback(async(props)=>{
     // console.log(props)
-    const res = await axios(`https://www.omdbapi.com/?apikey=ff18a1d&i=${props.imdbID}`)
+    const res = await petitionById(props)
     console.log(res.data)
     if(res.data === undefined){
       return []
@@ -68,66 +69,13 @@ const Home = () => {
 
   const handleChange = (e) => {
     setTitle(e.target.value)
-    // console.log(e.target.value)
   }
-
-// crear una lista de id y tomar uno de forma aleatoria
-// function getRandomInt(min, max) {
-  // return Math.floor(Math.random() * (max-min)+min);
-// } cuando no se le pasa nada a random da un numero entre 0 y 1 (excluyendo el 1)
-
-
-const randomMovie = (min, max) => {
-  return Math.floor(Math.random() * (max-min)+min)
-}
-
-// console.log(randomMovie(1000000, 2000000))
-
-const petitionRandom = async() => {
-  const res = await axios(`https://www.omdbapi.com/?i=tt${randomMovie(1000000, 2000000)}&type=movie&apikey=ff18a1d&`)
-    console.log(res.data)
-      setRandom(res.data)
-}
-
-// const idMax = 1265019 
 
   return (
     <>
       <section className='homeContainer'>
-        <Header 
-          petitionRandom={petitionRandom}
-        />
 
-        {/* card random */}
-        
-        <div className='home__Card'>
-          <CardRandom 
-          random={random}
-          idPetition={idPetition}
-          />
-        </div>
-        
-        <Modal
-          openModal={openModal}
-          closeModal={closeModal}
-        >
-          <div className='home__Card home__Card--modal'>
-            <div className='home__titleCard--modal'>
-              <p>{dataResId.Title}</p>
-            </div>
-            <div className='home__infoCard--modal'>
-              <p>{dataResId.Plot}</p>
-              <p>{dataResId.Genre}</p>
-              <p>Director: {dataResId.Director}</p>
-              <p>{dataResId.Year}</p>
-              <p>{dataResId.Language}</p>
-              <p>Coutry: {dataResId.Country}</p>
-              <p>{dataResId.Runtime}</p>
-              <p>Actors: {dataResId.Actors}</p>
-              <p>Writer: {dataResId.Writer}</p>
-            </div>
-          </div>
-        </Modal>
+        <Header/>
 
         {/* botones next previous input busqueda */}
         <div className='home__divBtnInput'>

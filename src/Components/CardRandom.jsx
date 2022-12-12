@@ -3,11 +3,14 @@ import { useState } from 'react'
 import Header from './Header'
 import Modal from './Modal'
 
-const CardRandom = ({random, idPetition}) => {
+const CardRandom = ({random, petitionId}) => {
+
+  console.log(random)
+
 
   return (
     <>
-        
+
         <div className='home__titleCard'>
             <p>{random.Title}</p>
           </div>
@@ -16,7 +19,7 @@ const CardRandom = ({random, idPetition}) => {
               <img src={random.Poster} alt='poster image' />
             </div>
             <div className='home__infoCard'>
-              <button onClick={()=>idPetition(random)} className='home__btnSeeMore'>See More</button>
+              <button onClick={()=>petitionId(random)} className='home__btnSeeMore'>See More</button>
             </div>
           </div>
 

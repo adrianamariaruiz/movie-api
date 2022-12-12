@@ -23,7 +23,7 @@ const toOpenMenu = () => {
     <div className='headerContainer'>
       <section className='header__section'>
         <img src={logo} alt="logo" className='header__logo'/>
-        <button onClick={petitionRandom}>Random</button>
+        {/* <button onClick={petitionRandom}>Random</button> */}
         
         <button 
           className='header__btnMenu'
@@ -32,28 +32,16 @@ const toOpenMenu = () => {
           <FontAwesomeIcon icon={faBars} className='header__menuIcon'/>
         </button>
 
-{
-  <Menu
-    openMenu={openMenu}
-    closeMenu={closeMenu}
-  />
+        {
+          <Menu
+            openMenu={openMenu}
+            closeMenu={closeMenu}
+          />
 
-}
+        }
         
-
       </section>
     </div>
-
-
-
-    {/* <div className={`modal ${openModal && 'modal-open'}`} onClick={closeModal}>
-      <div className='modal_dialog' onClick={handleModalDialogClick}>
-          <button onClick={closeModal} className="closeButtonModal">
-              <FontAwesomeIcon icon={faCircleXmark} className="iconCloseModal" />
-          </button>
-          {children}
-      </div>
-    </div> */}
     
     </>
 
