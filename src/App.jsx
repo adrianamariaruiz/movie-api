@@ -10,6 +10,7 @@ import './styles/Header.css'
 import './styles/Home.css'
 import './styles/Modal.css'
 import './styles/Menu.css'
+import './styles/Random.css'
 
 function App() {
 

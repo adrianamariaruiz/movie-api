@@ -7,6 +7,11 @@
     padding-bottom: 20px;
 }
 
+.homeContainer h2{
+    color: #E6F5FF;
+    text-align: center;
+}
+
 .home__divBtnInput{
     display: flex;
     justify-content: space-around;

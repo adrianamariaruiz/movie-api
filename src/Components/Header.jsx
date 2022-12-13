@@ -23,8 +23,7 @@ const toOpenMenu = () => {
     <div className='headerContainer'>
       <section className='header__section'>
         <img src={logo} alt="logo" className='header__logo'/>
-        {/* <button onClick={petitionRandom}>Random</button> */}
-        
+        <p>Welcome to Movie Info</p>
         <button 
           className='header__btnMenu'
           onClick={toOpenMenu}

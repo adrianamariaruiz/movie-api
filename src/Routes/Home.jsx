@@ -74,7 +74,7 @@ const Home = () => {
       <section className='homeContainer'>
 
         <Header/>
-
+        <h2>Search by title</h2>
         {/* botones next previous input busqueda */}
         <div className='home__divBtnInput'>
           <button onClick={previousPage} className='home__btnPrevious'><FontAwesomeIcon icon={faLeftLong}/></button>

@@ -54,6 +54,7 @@ const Movies = () => {
         <>
             <section className='homeContainer'>
                 <Header />
+                <h2>Search by movie title</h2>
                 <div className='home__divBtnInput'>
                     <button onClick={previousPage} className='home__btnPrevious'><FontAwesomeIcon icon={faLeftLong} /></button>
 

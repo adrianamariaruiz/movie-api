@@ -25,12 +25,18 @@ const RandomPage = () => {
   const randomMovie = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min)
   }
-  console.log(randomMovie(1000000, 2000000))
+  // console.log(randomMovie(1000000, 2000000))
 
   const randomPetition = useCallback(async () => {
     const res = await petitionRandom(randomMovie(1000000, 2000000));
     console.log(res.data)
-    setRandom(res.data)
+    console.log(res.data.Type)
+    if(res.data.Type !== 'movie'){
+      randomPetition()
+    } else {
+      setRandom(res.data)
+    }
+
   }, [])
 
   const petitionId = useCallback(async () => {
@@ -48,8 +54,9 @@ const RandomPage = () => {
     <>
       <section className='homeContainer'>
         <Header />
-
-        <button onClick={randomPetition}>Random</button>
+        <div className='random__container--btn'>
+          <button onClick={randomPetition} className='btn__random'>Random</button>
+        </div>
 
         <div className='home__Card'>
           <CardRandom
@@ -64,7 +71,7 @@ const RandomPage = () => {
         >
           <div className='home__Card home__Card--modal'>
             <div className='home__titleCard--modal'>
-              {/* <p>{dataResId.Title}</p> */}
+              <p>{dataResId.Title}</p>
             </div>
             <div className='home__infoCard--modal'>
               <p>{dataResId.Plot}</p>
