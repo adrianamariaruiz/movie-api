@@ -14,11 +14,12 @@ const Menu = ({openMenu, closeMenu}) => {
         onClick={closeMenu}
     >
         <div className='menu_dialog' onClick={handleMenuClick}>
-            <NavLink to={'/home'}>Home</NavLink>
-            <NavLink to={'/random'}>Random</NavLink>
-            <NavLink to={'/movies'}>Movies</NavLink>
-            <NavLink to={'/series'}>Series</NavLink>
-            <p>Cerrar Sesión</p> 
+            <NavLink to={'/home'} className='navLinks'>Home</NavLink>
+            <NavLink to={'/random'} className='navLinks'>Random</NavLink>
+            <NavLink to={'/movies'} className='navLinks'>Movies</NavLink>
+            <NavLink to={'/series'} className='navLinks'>Series</NavLink>
+            <NavLink to={'/welcome'} className='navLinks'>Sign out</NavLink>
+            
         </div>
     </div>
     </>
@@ -26,12 +27,3 @@ const Menu = ({openMenu, closeMenu}) => {
 }
 
 export default Menu
-
-        // <div className={`modal ${openModal && 'modal-open'}`} onClick={closeModal}>
-        //     <div className='modal_dialog' onClick={handleModalDialogClick}>
-        //         <button onClick={closeModal} className="closeButtonModal">
-        //             <FontAwesomeIcon icon={faCircleXmark} className="iconCloseModal" />
-        //         </button>
-        //         {children}
-        //     </div>
-        // </div>

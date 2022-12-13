@@ -1,16 +1,19 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Login from "./Routes/Login"
 import Register from "./Routes/Register"
-import Header from "./Components/Header"
+import WelcomePage from "./Routes/WelcomePage"
 import Home from "./Routes/Home"
+import RandomPage from "./Routes/RandomPage"
+import Movies from "./Routes/Movies"
+import Series from "./Routes/Series"
 
 import './styles/Login.css'
 import './styles/Header.css'
 import './styles/Home.css'
 import './styles/Modal.css'
 import './styles/Menu.css'
-
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import CardRandom from "./Components/CardRandom"
+import './styles/Random.css'
+import './styles/Spinner.css'
 
 function App() {
 
@@ -19,9 +22,12 @@ function App() {
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path="/registro" element={<Register/>}/>
+        
+        <Route path="/welcome" element={<WelcomePage/>}/>
         <Route path="/home" element={<Home/>}/>
-        <Route path="/random" element={<CardRandom/>}/>
-
+        <Route path="/random" element={<RandomPage/>}/>
+        <Route path="/movies" element={<Movies/>}/>
+        <Route path="/series" element={<Series/>}/>
       </Routes>
     </BrowserRouter>
   )
