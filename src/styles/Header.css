@@ -1,6 +1,7 @@
 .headerContainer{
     padding: 10px;
     background-color: #090922;
+    box-shadow: 0px 2px 8px #c5c4c485;
     color: #E6F5FF;
     width: auto;
     height: 70px;
@@ -27,4 +28,28 @@
     color: #E6F5FF;
     height: 30px;
     width: auto;
+}
+
+@media all and (min-width: 768px){
+    .headerContainer{
+        height: 100px;
+    }
+
+    .header__section p{
+        font-size: 28px;
+    }
+
+    .header__logo{
+        height: 120px;
+    }
+    
+    .header__menuIcon{
+        height: 50px;
+    }
+}
+
+@media all and (min-width: 1024px){
+    .header__logo{
+        height: 130px;
+    }
 }

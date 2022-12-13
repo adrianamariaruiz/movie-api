@@ -7,6 +7,11 @@
     padding-bottom: 20px;
 }
 
+.homeContainer h2{
+    color: #E6F5FF;
+    text-align: center;
+}
+
 .home__divBtnInput{
     display: flex;
     justify-content: space-around;
@@ -17,8 +22,12 @@
     border-style: none;
     height: 41px;
     width: auto;
-    /* border-radius: 10px; */
     font-size: 14px;
+}
+
+.home__divBtnInput input:focus {
+    outline: solid 1px #A13333;
+    box-shadow: 0px 0px 10px #E6F5FF;
 }
 
 .home__divInput{
@@ -35,7 +44,6 @@
     font-size: 16px;
     height: 44px;
     width: 44px;
-
 }
 
 .home__btnPrevious, .home__btnNext{
@@ -50,6 +58,7 @@
     color: #E6F5FF;
 }
 
+ /* cards style */
 .home__Card{
     background-color: #E6F5FF;
     display: flex;
@@ -62,21 +71,27 @@
     padding: 10px;
     min-height: 300px;
     box-shadow: 2px 2px 6px #ffffff85;
-    /* overflow-y: scroll; */
 }
 
 .home__titleCard{
+    color: #090922;
+    font-weight: bold;
     font-size: 24px;
+    min-height: 100px;
+    /* border: solid 2px rgb(255, 238, 0); */
 }
 
 .home__cardContent{
     /* border: solid 2px rgb(255, 238, 0); */
     text-align: center;
 }
+.home__cardContent p{
+    font-size: 20px;
+}
 
 .home__imageCard{
     /* border: solid 2px rgb(255, 238, 0); */
-    margin-right: 5px;
+    min-height: 280px;
 }
 
 .home__imageCard img{
@@ -100,5 +115,71 @@
     border-style: none;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 10px;
+    margin: 5px 0 20px 0;
+}
+
+@media all and (min-width: 768px){
+    .home__divBtnInput input{
+        font-size: 20px;
+    }
+    
+    .home__btnSearch{
+        font-size: 20px;
+        height: 46px;
+    }
+
+    .home__btnPrevious, .home__btnNext{
+        height: 55px;
+        width: 55px;
+        font-size: 26px;
+    }
+
+    /* cards style */
+    .home__cards--container{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .home__Card{
+        width: 40%;
+    }
+}
+
+@media all and (min-width: 1024px){
+    
+    .homeContainer h2{
+        font-size: 32px;
+    }
+
+    .home__divBtnInput input{
+        font-size: 26px;
+        height: 48px;
+    }
+    
+    .home__btnSearch{
+        font-size: 26px;
+        height: 50px;
+        width: 50px;
+    }
+
+    .home__btnPrevious, .home__btnNext{
+        height: 70px;
+        width: 70px;
+        font-size: 34px;
+    }
+
+    /* cards style */
+    .home__Card{
+        width: 25%;
+    }
+
+    .home__titleCard{
+        font-size: 26px;
+    }
+
+    .home__btnSeeMore{
+        height: 50px;
+        width: 150px;
+        font-size: 18px;
+    }
 }

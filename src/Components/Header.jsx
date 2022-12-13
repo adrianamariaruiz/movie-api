@@ -5,9 +5,9 @@ import { useState } from 'react'
 import logo from '../assets/movieinfo-sinFondo.png'
 import Menu from './Menu'
 
-const Header = ({petitionRandom}) => {
+const Header = () => {
 
-  const [menu, setMenu] = useState([])
+  // const [menu, setMenu] = useState([])
   const [openMenu, setOpenMenu] = useState(false)
 
   const closeMenu = () => {
@@ -23,8 +23,7 @@ const toOpenMenu = () => {
     <div className='headerContainer'>
       <section className='header__section'>
         <img src={logo} alt="logo" className='header__logo'/>
-        <button onClick={petitionRandom}>Random</button>
-        
+        <p>Welcome to Movie Info</p>
         <button 
           className='header__btnMenu'
           onClick={toOpenMenu}
@@ -32,28 +31,16 @@ const toOpenMenu = () => {
           <FontAwesomeIcon icon={faBars} className='header__menuIcon'/>
         </button>
 
-{
-  <Menu
-    openMenu={openMenu}
-    closeMenu={closeMenu}
-  />
+        {
+          <Menu
+            openMenu={openMenu}
+            closeMenu={closeMenu}
+          />
 
-}
+        }
         
-
       </section>
     </div>
-
-
-
-    {/* <div className={`modal ${openModal && 'modal-open'}`} onClick={closeModal}>
-      <div className='modal_dialog' onClick={handleModalDialogClick}>
-          <button onClick={closeModal} className="closeButtonModal">
-              <FontAwesomeIcon icon={faCircleXmark} className="iconCloseModal" />
-          </button>
-          {children}
-      </div>
-    </div> */}
     
     </>
 
