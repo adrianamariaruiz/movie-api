@@ -13,3 +13,20 @@
     height: 44px;
     width: 120px;
 }
+
+@media all and (min-width: 768px){
+
+}
+
+@media all and (min-width: 1024px){
+.btn__random{
+    margin-bottom: 20px;
+    font-size: 24px;
+    height: 60px;
+    width: 200px;
+}
+
+.random__title{
+    font-size: 28px;
+}
+}

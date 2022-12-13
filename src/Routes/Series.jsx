@@ -4,12 +4,11 @@ import React, { useCallback, useState } from 'react'
 import Card from '../Components/Card'
 import Header from '../Components/Header'
 import Modal from '../Components/Modal'
-import { petitionById, petitionOnlyMovies } from '../helpers/axios'
+import { petitionById, petitionOnlySeries } from '../helpers/axios'
 
-const Movies = () => {
-
+const Series = () => {
     const [page, setPage] = useState(1)
-    const [dataMovies, setDataMovies] = useState([])
+    const [dataSeries, setDataSeries] = useState([])
     const [dataResId, setDataResId] = useState([])
     const [title, setTitle] = useState('')
     const [openModal, setOpenModal] = useState(false)
@@ -18,9 +17,9 @@ const Movies = () => {
         setOpenModal(false)
     }
 
-    const moviesArray = useCallback(async (page) => {
-        const res = await petitionOnlyMovies(title, page)
-        setDataMovies(res.data.Search)
+    const seriesArray = useCallback(async (page) => {
+        const res = await petitionOnlySeries(title, page)
+        setDataSeries(res.data.Search)
         console.log(res.data.Search)
     }, [title, page])
 
@@ -38,12 +37,12 @@ const Movies = () => {
 
     const nextPage = () => {
         setPage(page + 1)
-        moviesArray(page + 1)
+        seriesArray(page + 1)
     }
 
     const previousPage = () => {
         setPage(page - 1)
-        moviesArray(page - 1)
+        seriesArray(page - 1)
     }
 
     const handleChange = (e) => {
@@ -54,7 +53,7 @@ const Movies = () => {
         <>
             <section className='homeContainer'>
                 <Header />
-                <h2>Search by movie title</h2>
+                <h2>Search by serie title</h2>
                 <div className='home__divBtnInput'>
                     <button onClick={previousPage} className='home__btnPrevious'><FontAwesomeIcon icon={faLeftLong} /></button>
 
@@ -65,7 +64,7 @@ const Movies = () => {
                             value={title}
                             onChange={handleChange}
                         ></input>
-                        <button onClick={() => moviesArray(page)} className='home__btnSearch'><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+                        <button onClick={() => seriesArray(page)} className='home__btnSearch'><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
                     </div>
 
                     <button onClick={nextPage} className='home__btnNext'><FontAwesomeIcon icon={faRightLong} /></button>
@@ -73,13 +72,15 @@ const Movies = () => {
 
                 <div className='home__cards--container'>
                 {
-                    dataMovies.map((movie, index) => {
+                    dataSeries.map((movie, index) => {
                         return (
                             <div key={index} className='home__Card'>
+
                                 <Card
                                     movie={movie}
                                     idPetition={idPetition}
                                 />
+
                             </div>
                         )
                     })
@@ -112,5 +113,5 @@ const Movies = () => {
     )
 }
 
-export default Movies
 
+export default Series

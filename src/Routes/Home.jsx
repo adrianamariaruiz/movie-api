@@ -93,6 +93,8 @@ const Home = () => {
         </div>
 
         {/* tarjeta con poster */}
+        <div className='home__cards--container'>
+
         {
           dataRes.map((movie, index) => {
             return (
@@ -127,6 +129,8 @@ const Home = () => {
             </div>
           </div>
         </Modal>
+
+        </div>
 
       </section>
     </>

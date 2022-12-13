@@ -6,7 +6,7 @@ const CardRandom = ({random, petitionId}) => {
   return (
     <>
       <div className='home__titleCard'>
-          <p>{random.Title}</p>
+          <p className='random__title'>{random.Title}</p>
         </div>
         <div className='home__cardContent'>
           <div className='home__imageCard'>

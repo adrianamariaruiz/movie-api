@@ -29,3 +29,9 @@ export const petitionOnlyMovies = async (title, page) => {
     // console.log(res.data)
     return res
 }
+
+export const petitionOnlySeries = async (title, page) => {
+    const res = await axios(`https://www.omdbapi.com/?s=${title}&type=series&apikey=ff18a1d&page=${page}`)
+    // console.log(res.data)
+    return res
+}

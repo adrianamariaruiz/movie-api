@@ -17,6 +17,7 @@ const RandomPage = () => {
   const [random, setRandom] = useState([])
   const [dataResId, setDataResId] = useState([])
   const [openModal, setOpenModal] = useState(false)
+  const [charging, setCharging] = useState(false)
 
   const closeModal = () => {
     setOpenModal(false)
@@ -32,8 +33,11 @@ const RandomPage = () => {
     console.log(res.data)
     console.log(res.data.Type)
     if(res.data.Type !== 'movie'){
+      setCharging(true)
+      console.log(charging)
       randomPetition()
     } else {
+      setCharging(false)
       setRandom(res.data)
     }
 
@@ -54,9 +58,19 @@ const RandomPage = () => {
     <>
       <section className='homeContainer'>
         <Header />
+        
         <div className='random__container--btn'>
           <button onClick={randomPetition} className='btn__random'>Random</button>
         </div>
+
+        {
+          charging === true &&
+            <div className='charging'>
+              <div className='loader'></div>
+            </div>
+        }
+
+        <div className='home__cards--container'>
 
         <div className='home__Card'>
           <CardRandom
@@ -86,6 +100,7 @@ const RandomPage = () => {
             </div>
           </div>
         </Modal>
+        </div>
       </section>
     </>
   )

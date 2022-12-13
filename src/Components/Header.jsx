@@ -5,9 +5,9 @@ import { useState } from 'react'
 import logo from '../assets/movieinfo-sinFondo.png'
 import Menu from './Menu'
 
-const Header = ({petitionRandom}) => {
+const Header = () => {
 
-  const [menu, setMenu] = useState([])
+  // const [menu, setMenu] = useState([])
   const [openMenu, setOpenMenu] = useState(false)
 
   const closeMenu = () => {
