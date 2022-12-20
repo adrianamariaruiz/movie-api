@@ -9,6 +9,7 @@
     display: none;
     justify-content: flex-end;
     align-items: flex-start;
+    
 }
 
 .menu_dialog {
@@ -19,6 +20,7 @@
     line-height: 24px;
     width: 150px;
     margin-top: 90px;
+    
 }
 
 .navLinks{

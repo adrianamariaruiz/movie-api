@@ -7,11 +7,17 @@
 .btn__random{
     background-color: #090922;
     border-style: solid;
+    border-radius: 12px;
     box-shadow: 0px 1px 4px #c5c4c485;
     color: #E6F5FF;
     font-size: 16px;
     height: 44px;
     width: 120px;
+    cursor: pointer;
+}
+
+.btn__random:hover{
+    box-shadow: 0px 0px 10px #E6F5FF;
 }
 
 @media all and (min-width: 768px){
