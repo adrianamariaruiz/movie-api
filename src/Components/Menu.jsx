@@ -18,7 +18,7 @@ const Menu = ({openMenu, closeMenu}) => {
             <NavLink to={'/random'} className='navLinks'>Random</NavLink>
             <NavLink to={'/movies'} className='navLinks'>Movies</NavLink>
             <NavLink to={'/series'} className='navLinks'>Series</NavLink>
-            <NavLink to={'/welcome'} className='navLinks'>Sign out</NavLink>
+            <NavLink to={'/'} className='navLinks'>Sign out</NavLink>
             
         </div>
     </div>

@@ -23,7 +23,7 @@ function App() {
         {/* <Route path='/' element={<Login />} />
         <Route path="/registro" element={<Register/>}/> */}
         
-        <Route path="/welcome" element={<WelcomePage/>}/>
+        <Route path="/" element={<WelcomePage/>}/>
         <Route path="/home" element={<Home/>}/>
         <Route path="/random" element={<RandomPage/>}/>
         <Route path="/movies" element={<Movies/>}/>
