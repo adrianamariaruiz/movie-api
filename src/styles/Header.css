@@ -14,7 +14,6 @@
 }
 
 .header__logo{
-    /* border: solid 1px white; */
     height: 85px;
     width: auto;
 }
@@ -81,6 +80,15 @@
 
     .header__navbarOptions:hover{
         box-shadow: 0px 0px 10px #E6F5FF;
+    }
+
+    .active{
+        color: #A13333;
+        box-shadow: 0px 0px 10px #E6F5FF;
+    }
+
+    .signOutIcon{
+        font-size: 26px;
     }
 
 }

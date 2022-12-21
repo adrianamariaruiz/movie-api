@@ -123,6 +123,10 @@
     margin: 5px 0 20px 0;
 }
 
+.home__btnSeeMore:hover {
+    color: #A13333;
+}
+
 @media all and (min-width: 768px){
     .home__divBtnInput input{
         font-size: 20px;
