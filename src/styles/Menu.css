@@ -9,6 +9,7 @@
     display: none;
     justify-content: flex-end;
     align-items: flex-start;
+    
 }
 
 .menu_dialog {
@@ -19,6 +20,7 @@
     line-height: 24px;
     width: 150px;
     margin-top: 90px;
+    
 }
 
 .navLinks{
@@ -32,11 +34,22 @@
     text-align: center;
 }
 
+.navLinks:hover{
+    color: #A13333;
+}
+
 .menu-open {
     display: flex;
 }
 
 .menu-close{
     display: none;
+}
+
+@media all and (min-width: 768px){
+    .menu_dialog{
+        margin-top: 120px;
+        width: 210px;
+    }
 }
 

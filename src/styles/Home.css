@@ -44,18 +44,23 @@
     font-size: 16px;
     height: 44px;
     width: 44px;
+    cursor: pointer;
 }
 
+
 .home__btnPrevious, .home__btnNext{
-    /* border-style: none; */
     border-style: solid;
     box-shadow: 0px 1px 4px #c5c4c485;
-    /* border-color: #E6F5FF; */
     border-radius: 50%;
     height: 44px;
     width: 44px;
     background-color: #090922;
     color: #E6F5FF;
+    cursor: pointer;
+}
+
+.home__btnPrevious:hover, .home__btnNext:hover, .home__btnSearch:hover{
+    box-shadow: 0px 0px 10px #E6F5FF;
 }
 
  /* cards style */
@@ -116,6 +121,10 @@
     font-size: 16px;
     cursor: pointer;
     margin: 5px 0 20px 0;
+}
+
+.home__btnSeeMore:hover {
+    color: #A13333;
 }
 
 @media all and (min-width: 768px){
