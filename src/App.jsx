@@ -1,6 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Login from "./Routes/Login"
-import Register from "./Routes/Register"
 import WelcomePage from "./Routes/WelcomePage"
 import Home from "./Routes/Home"
 import RandomPage from "./Routes/RandomPage"
@@ -20,9 +18,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path='/' element={<Login />} />
-        <Route path="/registro" element={<Register/>}/> */}
-        
         <Route path="/" element={<WelcomePage/>}/>
         <Route path="/home" element={<Home/>}/>
         <Route path="/random" element={<RandomPage/>}/>

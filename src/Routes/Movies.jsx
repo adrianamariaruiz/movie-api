@@ -21,13 +21,10 @@ const Movies = () => {
     const moviesArray = useCallback(async (page) => {
         const res = await petitionOnlyMovies(title, page)
         setDataMovies(res.data.Search)
-        console.log(res.data.Search)
     }, [title, page])
 
     const idPetition = useCallback(async (props) => {
-        // console.log(props)
         const res = await petitionById(props)
-        console.log(res.data)
         if (res.data === undefined) {
             return []
         } else {

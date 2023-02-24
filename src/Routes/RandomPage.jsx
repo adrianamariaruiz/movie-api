@@ -7,13 +7,6 @@ import { idPetition, petitionRandom } from '../helpers/axios'
 
 const RandomPage = () => {
 
-  // crear una lista de id y tomar uno de forma aleatoria
-  // function getRandomInt(min, max) {
-  // return Math.floor(Math.random() * (max-min)+min);
-  // } cuando no se le pasa nada a random da un numero entre 0 y 1 (excluyendo el 1)
-
-  // const idMax = 1265019 
-
   const [random, setRandom] = useState([])
   const [dataResId, setDataResId] = useState([])
   const [openModal, setOpenModal] = useState(false)
@@ -26,7 +19,6 @@ const RandomPage = () => {
   const randomMovie = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min)
   }
-  // console.log(randomMovie(1000000, 2000000))
 
   const randomPetition = useCallback(async () => {
     const res = await petitionRandom(randomMovie(1000000, 2000000));

@@ -10,10 +10,6 @@ import Modal from '../Components/Modal';
 import Card from '../Components/Card';
 import { petitionById, petitionMovie } from '../helpers/axios';
 
-// <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
-// <FontAwesomeIcon icon="fa-solid fa-right-long" />
-// <FontAwesomeIcon icon="fa-solid fa-left-long" />
-
 const Home = () => {
 
   const [dataRes, setDataRes] = useState([])
@@ -25,12 +21,6 @@ const Home = () => {
   const closeModal = () => {
       setOpenModal(false)
   }
-
-  // console.log(dataRes[0].imdbID)
-  // https://www.omdbapi.com/?t=game+of+thrones&apikey=ff18a1d
-  // imdbID: "tt0372784" del el zorro
-  // const res = await axios(`https://www.omdbapi.com/?i=${prueba}&apikey=ff18a1d`)
-  // const res = await axios(`https://www.omdbapi.com/?s=${title}&apikey=ff18a1d&page=${page}`)
 
   // peticion axios para obtener la data
   const petition = useCallback(async(page) => {
@@ -44,7 +34,6 @@ const Home = () => {
   }, [title])
 
   const idPetition = useCallback(async(props)=>{
-    // console.log(props)
     const res = await petitionById(props)
     console.log(res.data)
     if(res.data === undefined){

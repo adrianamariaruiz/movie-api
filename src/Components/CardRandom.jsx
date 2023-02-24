@@ -2,7 +2,6 @@ import React from 'react'
 
 const CardRandom = ({random, petitionId}) => {
 
-  // console.log(random)
   return (
     <>
       <div className='home__titleCard'>

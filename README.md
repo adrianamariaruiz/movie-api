@@ -1,13 +1,17 @@
 # Aplicación de busqueda de peliculas y series
 
-- [Usa la app aqui!](https://flourishing-truffle-4a186a.netlify.app/)
+ - [Accede a la app aqui!](https://flourishing-truffle-4a186a.netlify.app/)
 
-## Imagenes de muestra de la App
+<br>
+
+#### La api que usé fue https://www.omdbapi.com/ 
+
 <br>
 
 #### En la aplicación puede realizar busqueda general o filtrar por peliculas, series o random, en random solo son peliculas. Tiene paginación y barra de navegación, en la versión celular tiene un menu desplegable.
-
 <br>
+
+## Imagenes de muestra de la App
 
 <figure>
     <figcaption>Vista celular</figcaption>

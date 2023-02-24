@@ -20,11 +20,9 @@ const Series = () => {
     const seriesArray = useCallback(async (page) => {
         const res = await petitionOnlySeries(title, page)
         setDataSeries(res.data.Search)
-        console.log(res.data.Search)
     }, [title, page])
 
     const idPetition = useCallback(async (props) => {
-        // console.log(props)
         const res = await petitionById(props)
         console.log(res.data)
         if (res.data === undefined) {
