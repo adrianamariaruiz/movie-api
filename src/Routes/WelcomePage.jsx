@@ -14,7 +14,7 @@ const WelcomePage = () => {
         <section className='loginDiv'>
             <img src={logo} alt="logo" className='login__logo'/>
             <p className='login__p'>Welcome to Movie Info</p>
-            <button className='login__button' onClick={welcome}>Start!</button>
+            <button className='btn button__start' onClick={welcome}>Start!</button>
         </section>
       </>
       

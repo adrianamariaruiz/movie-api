@@ -81,7 +81,22 @@
     color: #A13333;
 }
 
-/* button::before{
+.btn{
+    position: relative;
+    color: #E6F5FF;
+    font-weight: bold;
+    height: 44px;
+    width: 120px;
+    border-radius: 12px;
+    border-style: none;
+    margin-top: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 2;
+    border: 1px solid #ffffff;
+}
+
+.button__start::before{
     content: '';
     position: absolute;
     top: 0;
@@ -89,14 +104,17 @@
     z-index: -1;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #090922, rgb(3, 247, 255), deeppink, rgb(3, 247, 255), #090922, rgb(3, 247, 255), deeppink, rgb(3, 247, 255));
-    background-size: 800%;
+    background: linear-gradient(45deg, #090922, #26266d, #A13333, #26266d, #090922, #26266d, #A13333, #26266d);
+    background-size: 300%;
     border-radius: 10px;
-    filter: blur(8px);
-    animation: glowing 60s linear infinite;
-} */
+}
 
-/* @keyframes glowing {
+.button__start:hover::before{
+    filter: blur(2px);
+    animation: glowing 20s linear infinite;
+}
+
+@keyframes glowing {
     0%{
         background-position: 0 0;
     }
@@ -106,4 +124,4 @@
     100%{
         background-position: 0 0;
     }
-} */
+}

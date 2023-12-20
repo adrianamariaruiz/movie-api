@@ -7,20 +7,19 @@
     left: 0;
     z-index: 999;
     display: none;
-    justify-content: center;
-    align-items: center;
 }
 
 .modal_dialog {
-    max-height: 500px;
-    width: 85%;
+    max-height: 550px;
+    width: 80%;
     background-color: #E6F5FF;
     border-radius: 12px;
     display: inline-grid;
     gap: 5px;
     flex-direction: column;
     padding: 5px;
-    margin: 30px 20px;
+    margin: auto;
+    place-items: center;
     overflow-y: scroll;
 }
 
@@ -47,8 +46,9 @@
 .home__Card--modal{
     background-color: #090922;
     color: #E6F5FF;
-    width: 80%;
+    width: 75%;
     margin-top: 5px;
+    margin-left: 50px;
 }
 
 .home__titleCard--modal {
@@ -58,12 +58,15 @@
 @media all and (min-width: 768px){
     .modal_dialog{
         min-width: 300px;
-        width: 350px;
         min-height: 300px;
+        width: 60%;
+        margin: auto;
+        place-items: center;
     }
 
     .home__Card--modal{
         font-size: 18px;
+        margin-left: 50px;
     }
 
     .iconCloseModal {
@@ -73,13 +76,16 @@
 }
 
 @media all and (min-width: 1024px){
-    .modal_dialog{
-            width: 450px;
+        .modal_dialog{
+            margin: auto;
+            place-items: center;
+            width: 60%;
             min-height: 600px;
         }
 
         .home__Card--modal{
             font-size: 24px;
+            margin-left: 50px;
         }
 
         .iconCloseModal {
